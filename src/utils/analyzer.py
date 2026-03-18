@@ -39,4 +39,4 @@ class DataAnalyzer:
                 avg_time = stats['time'] / stats['count']
                 avg_comp = stats['comp'] / stats['count']
                 avg_swaps = stats['swaps'] / stats['count']
-                writer.writerow([algo, n, shape, f"{avg_time:.6f}", f"{avg_comp:.1f}", f"{avg_swaps:.1f}"])
+                writer.writerow([algo, n, shape, f"{avg_time:.6f}", f"{avg_comp:.0f}", f"{avg_swaps:.0f}"])

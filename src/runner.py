@@ -20,8 +20,8 @@ class BenchmarkRunner:
         if len(data) <= 100:
             return str(data)
         
-        front = data[:50]
-        back = data[-50:]
+        front = data[:10]
+        back = data[-10:]
         
         front_str = ", ".join(map(str, front))
         back_str = ", ".join(map(str, back))

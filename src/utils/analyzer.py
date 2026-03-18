@@ -1,6 +1,15 @@
 import csv
 from collections import defaultdict
 import os
+import sys
+
+max_int = sys.maxsize
+while True:
+    try:
+        csv.field_size_limit(max_int)
+        break
+    except OverflowError:
+        max_int = int(max_int / 10)
 
 class DataAnalyzer:
     def __init__(self, raw_csv_path: str):

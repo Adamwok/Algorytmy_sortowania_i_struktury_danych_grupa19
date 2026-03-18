@@ -15,7 +15,7 @@ class DataGenerator:
     
     @staticmethod
     def generate_descending(n):
-        return sorted(DataGenerator.generate_base(), reverse=True)
+        return sorted(DataGenerator.generate_base(n), reverse=True)
     
     @staticmethod
     def generate_a_shaped(n):

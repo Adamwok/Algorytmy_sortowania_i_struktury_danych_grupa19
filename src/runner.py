@@ -16,21 +16,17 @@ class BenchmarkRunner:
             ("ShellSort", ShellSort()),
         ]
 
-    def _format_sequence(self, data: list) -> str:
-        if len(data) <= 6:
-            return str(data)
-        return f"[{data[0]}, {data[1]}, {data[2]}, ..., {data[-3]}, {data[-2]}, {data[-1]}]"
-
     def execute_all(self):
         for n in self.n_values:
+            print(f"Generowanie ciągów i sortowanie dla n = {n}...")
             datasets = DataGenerator.generate_datasets(n, self.iterations)
             for algo_name, sorter in self.algorithms:
                 for shape, arrays in datasets.items():
                     for i, data in enumerate(arrays, start=1):
-                        input_str = self._format_sequence(data)
+                        input_str = str(data)
                         
                         sorted_data = sorter.run_sort(data.copy())
-                        output_str = self._format_sequence(sorted_data)
+                        output_str = str(sorted_data)
                         
                         is_sorted = all(sorted_data[k] <= sorted_data[k+1] for k in range(len(sorted_data)-1))
                         custom_data_str = str(sorter.custom_metrics) if sorter.custom_metrics else "Brak"

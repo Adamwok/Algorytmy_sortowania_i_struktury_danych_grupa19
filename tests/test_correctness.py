@@ -8,6 +8,10 @@ sys.path.append(base_dir)
 from src.generators import DataGenerator
 from src.algorithms import BubbleSort
 from src.algorithms import HeapSort
+from src.algorithms import MergeSort
+from src.algorithms import QuickSortIter
+from src.algorithms import QuickSortRec
+from src.algorithms import ShellSort
 
 class TestSortingAlgorithms(unittest.TestCase):
     def setUp(self):
@@ -22,6 +26,30 @@ class TestSortingAlgorithms(unittest.TestCase):
     
     def test_heap_sort(self):
         sorter = HeapSort()
+        expected = sorted(self.data)
+        result = sorter.run_sort(self.data)
+        self.assertEqual(result, expected)
+    
+    def test_merge_sort(self):
+        sorter = MergeSort()
+        expected = sorted(self.data)
+        result = sorter.run_sort(self.data)
+        self.assertEqual(result, expected)
+    
+    def test_quick_sort_iter(self):
+        sorter = QuickSortIter()
+        expected = sorted(self.data)
+        result = sorter.run_sort(self.data)
+        self.assertEqual(result, expected)
+    
+    def test_quick_sort_rec(self):
+        sorter = QuickSortRec()
+        expected = sorted(self.data)
+        result = sorter.run_sort(self.data)
+        self.assertEqual(result, expected)
+    
+    def test_shell_sort(self):
+        sorter = ShellSort()
         expected = sorted(self.data)
         result = sorter.run_sort(self.data)
         self.assertEqual(result, expected)

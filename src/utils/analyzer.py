@@ -20,19 +20,23 @@ class DataAnalyzer:
         if not os.path.exists(self.raw_path):
             raise FileNotFoundError(f"Brak pliku: {self.raw_path}")
 
-        data = defaultdict(lambda: {'time': 0.0, 'count': 0})
+        data = defaultdict(lambda: {'time': 0.0, 'comp': 0, 'swaps': 0, 'count': 0})
         
         with open(self.raw_path, mode='r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 key = (row['Algorytm'], row['Rozmiar_N'], row['Uklad_Danych'])
                 data[key]['time'] += float(row['Czas_s'])
+                data[key]['comp'] += int(row['Porownania'])
+                data[key]['swaps'] += int(row['Zamiany'])
                 data[key]['count'] += 1
                 
         with open(self.summary_path, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(['Algorytm', 'Rozmiar_N', 'Uklad_Danych', 'Sredni_Czas_s'])
+            writer.writerow(['Algorytm', 'Rozmiar_N', 'Uklad_Danych', 'Sredni_Czas_s', 'Srednie_Porownania', 'Srednie_Zamiany'])
             
             for (algo, n, shape), stats in data.items():
                 avg_time = stats['time'] / stats['count']
-                writer.writerow([algo, n, shape, f"{avg_time:.6f}"])
+                avg_comp = stats['comp'] / stats['count']
+                avg_swaps = stats['swaps'] / stats['count']
+                writer.writerow([algo, n, shape, f"{avg_time:.6f}", f"{avg_comp:.1f}", f"{avg_swaps:.1f}"])

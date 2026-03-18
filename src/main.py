@@ -9,7 +9,7 @@ from src.utils import DataAnalyzer
 
 def main():
     results_path = os.path.join(base_dir, 'results', 'raw_data.csv')
-    n_values = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+    n_values = [100, 200, 300, 400, 500, 1100, 1200, 1300, 1400, 1500]
     iterations = 10
 
     runner = BenchmarkRunner(results_path, n_values, iterations)

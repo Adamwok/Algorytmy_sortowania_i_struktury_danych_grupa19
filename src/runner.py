@@ -17,11 +17,11 @@ class BenchmarkRunner:
         ]
 
     def _format_sequence(self, data: list) -> str:
-        if len(data) <= 200:
+        if len(data) <= 100:
             return str(data)
         
-        front = data[:100]
-        back = data[-100:]
+        front = data[:50]
+        back = data[-50:]
         
         front_str = ", ".join(map(str, front))
         back_str = ", ".join(map(str, back))

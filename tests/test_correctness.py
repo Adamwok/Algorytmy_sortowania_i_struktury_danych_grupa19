@@ -7,6 +7,7 @@ sys.path.append(base_dir)
 
 from src.generators import DataGenerator
 from src.algorithms import BubbleSort
+from src.algorithms import HeapSort
 
 class TestSortingAlgorithms(unittest.TestCase):
     def setUp(self):
@@ -15,6 +16,12 @@ class TestSortingAlgorithms(unittest.TestCase):
 
     def test_bubble_sort(self):
         sorter = BubbleSort()
+        expected = sorted(self.data)
+        result = sorter.run_sort(self.data)
+        self.assertEqual(result, expected)
+    
+    def test_heap_sort(self):
+        sorter = HeapSort()
         expected = sorted(self.data)
         result = sorter.run_sort(self.data)
         self.assertEqual(result, expected)

@@ -4,6 +4,7 @@ class MergeSort(BaseSort):
     def sort(self, data: list) -> list:
         self.custom_metrics['merges'] = 0
         self._merge_sort(data, 0, len(data) - 1)
+        return data
 
     def _merge_sort(self, data: list, left: int, right: int):
         if left < right:

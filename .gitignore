@@ -1,7 +1,5 @@
 __pycache__/
 .vscode/
-*.csv
-results/
 venv/
 results/raw_data.csv
 results/summary.csv

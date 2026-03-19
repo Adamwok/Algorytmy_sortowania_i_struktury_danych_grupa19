@@ -1,5 +1,4 @@
 Analiza Efektywności Algorytmów Sortowania
-    
     Projekt realizuje porównanie wydajności sześciu popularnych algorytmów sortowania. Testowane są różne układy ciągów wejściowych oraz od rozmiaru danych (n).
 
 Konfiguracja sprzętowa na jakiej testowany był program

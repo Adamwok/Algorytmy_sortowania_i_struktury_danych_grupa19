@@ -3,17 +3,17 @@ from .base import BaseSort
 class MergeSort(BaseSort):
     def sort(self, data: list) -> list:
         self.custom_metrics['merges'] = 0
-        self._merge_sort(data, 0, len(data) - 1)
+        self.merge_sort(data, 0, len(data) - 1)
         return data
 
-    def _merge_sort(self, data: list, left: int, right: int):
+    def merge_sort(self, data: list, left: int, right: int):
         if left < right:
             mid = (left + right) // 2
-            self._merge_sort(data, left, mid)
-            self._merge_sort(data, mid + 1, right)
-            self._merge(data, left, mid, right)
+            self.merge_sort(data, left, mid)
+            self.merge_sort(data, mid + 1, right)
+            self.merge(data, left, mid, right)
         
-    def _merge(self, data: list, left: int, mid: int, right: int):
+    def merge(self, data: list, left: int, mid: int, right: int):
         self.custom_metrics['merges'] += 1
 
         left_part = data[left:mid + 1]

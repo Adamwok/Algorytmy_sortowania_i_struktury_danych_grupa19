@@ -4,16 +4,16 @@ from .base import BaseSort
 class QuickSortRec(BaseSort):
     def sort(self, data: list) -> list:
         self.custom_metrics['pivots'] = []
-        self._quick_sort(data, 0, len(data) - 1)
+        self.quick_sort(data, 0, len(data) - 1)
         return data
     
-    def _quick_sort(self, data: list, low: int, high: int):
+    def quick_sort(self, data: list, low: int, high: int):
         if low < high:
-            pivot_index = self._partition(data, low, high)
-            self._quick_sort(data, low, pivot_index - 1)
-            self._quick_sort(data, pivot_index + 1, high)
+            pivot_index = self.partition(data, low, high)
+            self.quick_sort(data, low, pivot_index - 1)
+            self.quick_sort(data, pivot_index + 1, high)
     
-    def _partition(self, data: list, low: int, high: int) -> int:
+    def partition(self, data: list, low: int, high: int) -> int:
         rand_idx = random.randint(low, high)
         data[high], data[rand_idx] = data[rand_idx], data[high]
         self.swaps += 1

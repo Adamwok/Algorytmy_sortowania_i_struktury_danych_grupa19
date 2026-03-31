@@ -11,13 +11,13 @@ class QuickSortIter(BaseSort):
         while stack:
             low, high = stack.pop()
             if low < high:
-                pivot_index = self._partition(data, low, high)
+                pivot_index = self.partition(data, low, high)
                 stack.append((low, pivot_index - 1))
                 stack.append((pivot_index + 1, high))
 
         return data
     
-    def _median_of_three(self, data: list, low: int, high: int):
+    def median_of_three(self, data: list, low: int, high: int):
         mid = (low + high) // 2
 
         self.comparisons += 1
@@ -39,8 +39,8 @@ class QuickSortIter(BaseSort):
         self.swaps += 1
 
     
-    def _partition(self, data: list, low: int, high: int) -> int:
-        self._median_of_three(data, low, high)
+    def partition(self, data: list, low: int, high: int) -> int:
+        self.median_of_three(data, low, high)
         pivot = data[high]
         self.custom_metrics['pivots'].append(pivot)
 

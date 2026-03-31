@@ -3,7 +3,7 @@ import random
 class DataGenerator:
     @staticmethod
     def generate_base(n):
-        return [random.randint(1, 10*n) for _ in range(n)]
+        return [random.randint(1, 10*n) for i in range(n)]
     
     @staticmethod
     def generate_random(n):
@@ -30,9 +30,9 @@ class DataGenerator:
     @staticmethod
     def generate_datasets(n, iterations=10):
         return {
-            "random": [DataGenerator.generate_random(n) for _ in range(iterations)],
-            "ascending": [DataGenerator.generate_ascending(n) for _ in range(iterations)],
-            "descending": [DataGenerator.generate_descending(n) for _ in range(iterations)],
-            "a_shaped": [DataGenerator.generate_a_shaped(n) for _ in range(iterations)],
-            "v_shaped": [DataGenerator.generate_v_shaped(n) for _ in range(iterations)]
+            "random": [DataGenerator.generate_random(n) for i in range(iterations)],
+            "ascending": [DataGenerator.generate_ascending(n) for i in range(iterations)],
+            "descending": [DataGenerator.generate_descending(n) for i in range(iterations)],
+            "a_shaped": [DataGenerator.generate_a_shaped(n) for i in range(iterations)],
+            "v_shaped": [DataGenerator.generate_v_shaped(n) for i in range(iterations)]
         }

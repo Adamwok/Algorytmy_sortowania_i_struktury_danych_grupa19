@@ -23,7 +23,7 @@ W trakcie działania programu w folderze projektu pojawiają się:
 
 ## Układy danych
 - Losowy: wartości wygenerowane losowo
-- Rosnący: tablica już posortowana
-- Malejący: tablica posortowana odwrotnie
+- Rosnący: tablica posortowana rosnąco
+- Malejący: tablica posortowana malejąco
 - A-kształtny: dane rosną do połowy i maleją
 - V-kształtny: dane maleją do połowy i rosną
